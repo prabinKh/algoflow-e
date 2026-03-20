@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+  
+  --color-primary: #2563eb;
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #64748b;
+  --color-secondary-foreground: #ffffff;
+  
+  --color-accent: #f59e0b;
+  --color-accent-foreground: #ffffff;
+  
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #3b82f6;
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --radius-outer: 1.5rem;
+  --radius-inner: 1rem;
+  --radius-pill: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .neo-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 shadow-sm rounded-outer;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-inner font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-all active:scale-95 shadow-lg shadow-primary/20;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-muted text-muted-foreground px-6 py-3 rounded-inner font-bold text-sm uppercase tracking-widest hover:bg-muted/80 transition-all active:scale-95;
+  }
+
+  .price-display {
+    @apply font-mono font-bold text-primary;
+  }
+
+  .product-card {
+    @apply bg-card border border-border/50 rounded-outer p-4 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 relative overflow-hidden;
+  }
+
+  .product-card-image {
+    @apply aspect-square rounded-inner bg-muted/30 flex items-center justify-center p-4 transition-all duration-500;
+  }
+
+  .neo-badge {
+    @apply px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest;
+  }
+
+  .neo-badge-sale {
+    @apply px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest bg-destructive text-destructive-foreground shadow-sm;
+  }
+
+  .neo-badge-new {
+    @apply px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest bg-primary text-primary-foreground shadow-sm;
+  }
+
+  .neo-badge-trust {
+    @apply px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest bg-emerald-500 text-white shadow-sm;
+  }
+
+  .stock-progress-bar {
+    @apply h-1.5 w-full bg-muted rounded-full overflow-hidden;
+  }
+
+  .stock-progress-fill {
+    @apply h-full bg-destructive rounded-full;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
